@@ -31,15 +31,15 @@ class StringHelper
     }
 
     /**
- * Camelizes string
- *
- * @param string $inputString
- * @param bool   $upperCaseFirstLetter
- *
- * @return string
- *
- * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
- */
+     * Camelizes string
+     *
+     * @param string $inputString
+     * @param bool   $upperCaseFirstLetter
+     *
+     * @return string
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     */
     public static function camelize($inputString, $upperCaseFirstLetter = false)
     {
         $inputString = trim($inputString);
@@ -73,6 +73,38 @@ class StringHelper
         );
 
         return $inputString;
+    }
+    /**
+     * Check if string starts with substring
+     *
+     * @param string $inputString
+     * @param string $subString
+     *
+     * @return bool
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     */
+      public static function startsWith(string  $inputString, string $subString)
+        {
+            return mb_strpos($inputString, $subString) === 0;
+        }
+
+    /**
+     * Removes prefix from start of string
+     *
+     * @param string $inputString
+     * @param string $prefixString
+     *
+     * @return string
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     */
+    public static function chompLeft(string $inputString, string $prefixString)
+        {
+            if (static::startsWith($inputString, $prefixString)) {
+                return mb_substr($inputString, mb_strlen($prefixString));
+            }
+            return $inputString;
     }
     
 }
