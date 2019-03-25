@@ -84,10 +84,25 @@ class StringHelper
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
      */
-      public static function startsWith(string  $inputString, string $subString)
-        {
-            return mb_strpos($inputString, $subString) === 0;
-        }
+     public static function startsWith(string  $inputString, string $subString)
+    {
+        return mb_strpos($inputString, $subString) === 0;
+    }
+
+    /**
+     * Check if string ends with substring
+     *
+     * @param string $inputString
+     * @param string $subString
+     *
+     * @return bool
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+    */
+    public static function endsWith(string $inputString, string $subString)
+    {
+        return mb_substr($inputString, -strlen($subString)) === $subString;
+    }
 
     /**
      * Removes prefix from start of string
@@ -100,11 +115,42 @@ class StringHelper
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
      */
     public static function chompLeft(string $inputString, string $prefixString)
-        {
-            if (static::startsWith($inputString, $prefixString)) {
-                return mb_substr($inputString, mb_strlen($prefixString));
-            }
-            return $inputString;
+    {
+        if (static::startsWith($inputString, $prefixString)) {
+            return mb_substr($inputString, mb_strlen($prefixString));
+        }
+        return $inputString;
+    }
+
+    /**
+     * Removes suffix from end of string
+     *
+     * @param string $inputString
+     * @param string $suffixString
+     *
+     * @return string
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     */
+    public static function chompRight(string $inputString, string $suffixString)
+    {
+        if ( static::endsWith($inputString, $suffixString)) {
+            return mb_substr($inputString, 0, mb_strlen($inputString) - mb_strlen($suffixString));
+        }
+
+        return $inputString;
+    }
+    /**
+     * Converts string to camelized class name. First letter is always upper case
+     *
+     * @param string $string
+     *
+     * @return string
+     * @author Aurimas Niekis <aurimas@niekis.lt>
+     */
+    function classify($string)
+    {
+        return camelize($string, true);
     }
     
 }
