@@ -14,6 +14,7 @@ class StringHelper
      * @return string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function between(string $inputString, string $onLeft, string $onRight)
     {
@@ -40,6 +41,7 @@ class StringHelper
      * @return string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function camelize(string $inputString, $upperCaseFirstLetter = false)
     {
@@ -86,6 +88,7 @@ class StringHelper
      * @return string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function chompLeft(string $inputString, string $prefixString)
     {
@@ -105,6 +108,7 @@ class StringHelper
      * @return string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function chompRight( string $inputString, string $suffixString)
     {
@@ -123,6 +127,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function classify(string $inputString)
     {
@@ -138,6 +143,7 @@ class StringHelper
      * @return string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function collapseWhitespace(string $inputString)
     {
@@ -153,6 +159,7 @@ class StringHelper
      * @return bool
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function contains( string $inputString, string $subString)
     {
@@ -168,6 +175,7 @@ class StringHelper
      * @return int
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function countOccurrences( string $inputString, string $subString)
     {
@@ -181,6 +189,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function dasherize(string $inputString)
     {
@@ -196,6 +205,7 @@ class StringHelper
      * @return bool
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function endsWith( string $inputString, string $subString)
     {
@@ -210,6 +220,7 @@ class StringHelper
      * @return bool
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function isAlpha( string $inputString)
     {
@@ -224,6 +235,7 @@ class StringHelper
      * @return bool
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function isAlphaNumeric( string $inputString)
     {
@@ -239,6 +251,7 @@ class StringHelper
      * @return bool
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function isLower( string $inputString, $mbString = false)
     {
@@ -255,6 +268,7 @@ class StringHelper
      * @return bool
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function isNumeric(string $inputString)
     {
@@ -270,6 +284,7 @@ class StringHelper
      * @return bool
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function isUpper(string $inputString, $mbString = false)
     {
@@ -286,6 +301,7 @@ class StringHelper
      * @return string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function latinize(string $inputString)
     {
@@ -392,6 +408,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function left( string $inputString, int $length)
     {
@@ -414,6 +431,7 @@ class StringHelper
      * 
      * @return int     The length of the input string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function len( string $inputString, $mbString = false)
     {
@@ -428,6 +446,7 @@ class StringHelper
      *
      * @return int         the length of the input string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function length( string $inputString, $mbString = false)
     {
@@ -441,6 +460,7 @@ class StringHelper
      *
      * @return array
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function lines( string $inputString)
     {
@@ -455,6 +475,7 @@ class StringHelper
      * @return string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function lowerCaseFirst(string $inputString)
     {
@@ -470,6 +491,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function pad( string $inputString, int $strLength, string $padCharacter = ' ')
     {
@@ -486,6 +508,7 @@ class StringHelper
      * @return string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function padLeft(string $inputString, int $strLength, string $padCharacter = ' ')
     {
@@ -503,6 +526,7 @@ class StringHelper
      * @return string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function padRight(string $inputString, int $strLength, string $padCharacter = ' ')
     {
@@ -519,6 +543,7 @@ class StringHelper
      * @return string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function repeat(string $inputString, int $nTimes)
     {
@@ -532,6 +557,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function reverse(string $inputString)
     {
@@ -546,6 +572,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function right( string $inputString, int $nTimes)
     {
@@ -566,6 +593,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function slugify(string $inputString)
     {
@@ -587,6 +615,7 @@ class StringHelper
      * @return bool
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function startsWith(string $inputString,string $subString)
     {
@@ -601,6 +630,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function strip($inputString, $inputString1)
     {
@@ -616,6 +646,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function stripPunctuation(string $inputString)
     {
@@ -629,6 +660,7 @@ class StringHelper
      * @return string          case swapped version of the input string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function swapCase( string $inputString, $mbString = false)
     {
@@ -646,6 +678,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function titleize( string $inputString, array $ignorableWords = [])
     {
@@ -673,6 +706,7 @@ class StringHelper
      * @return string         lowercased string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function toLower( string $inputString, $mbString = false)
     {
@@ -688,6 +722,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function toSentence(array $arrayOfString, string $delimiterCharacter = ', ', string $lastDelimiter = ' and ')
     {
@@ -705,6 +740,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function toSentenceSerial(array $arrayOfString, string $delimiterCharacter = ', ', string $lastDelimiter = ' and ')
     {
@@ -726,6 +762,7 @@ class StringHelper
      * @return string         uppercased string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function toUpper(string $inputString, $mbString = false)
     {
@@ -740,6 +777,7 @@ class StringHelper
      *
      * @return string
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function underscore(string $inputString)
     {
@@ -754,6 +792,7 @@ class StringHelper
      * @return string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
      */
     public static function upperCaseFirst($inputString)
     {
