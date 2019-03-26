@@ -759,5 +759,50 @@ class StringHelper
     {
         return ucfirst($inputString);
     }
-    
+    /**
+    * @function     highlightStringInParagraph
+    * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+    * @param        string  $paragraphText
+    * @param        string or array  $highlightWords
+    * @param        string  $highlightColor(optional)
+    * @usage        Highlights the given string in paragraph
+    * @version      1.4
+    **/
+    /*
+    |--------------------------------------------------------------------------
+    | Highlight the string in paragraph
+    |--------------------------------------------------------------------------
+    |
+    |Usage:
+    |Option 1: Highlighting Single word in paragraph
+    |echo highlightStringInParagraph("Lorem Ipsum is simply dummy text of the printing and typesetting industry",lorem,'#fa8a1a');
+    |
+    |Option 2: Highlighting Multiple word in paragraph
+    |echo highlightStringInParagraph("Lorem Ipsum is simply dummy text of the printing and typesetting industry",['lorem','ipsum'],'#fa8a1a');
+    |
+    */
+    public static function highlightStringInParagraph($paragraphText='', $highlightWords='',$highlightColor='red')
+    {
+        if (is_array($highlightWords)) 
+        {
+            foreach($highlightWords as $highlightWord)
+            {
+                $paragraphText = preg_replace(
+                    "|($highlightWord)|Ui" ,
+                    "<span style=\"color:".$highlightColor. ";\"><b>$1</b></span>" ,
+                    $paragraphText 
+                );
+            }
+        }
+        elseif (!is_array($highlightWords)) 
+        {
+            $colorChangedParagraph = preg_replace(
+                    "|($highlightWord)|Ui" ,
+                    "<span style=\"color:".$highlightColor. ";\"><b>$1</b></span>" ,
+                    $paragraphText 
+                );
+        }
+        return $paragraphText;
+
+    }    
 }
