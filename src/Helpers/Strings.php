@@ -789,7 +789,7 @@ class StringHelper
      *
      * @param  string $inputString (The input string)
      *
-     * @return string
+     * @return string         first uppercased string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
      * @version      1.2
@@ -805,6 +805,7 @@ class StringHelper
     * @param        string or array  $highlightWords
     * @param        string  $highlightColor(optional)
     * @usage        Highlights the given string in paragraph
+    * @return string         highlighits the string with color
     * @version      1.4
     **/
     /*
@@ -842,6 +843,20 @@ class StringHelper
                 );
         }
         return $paragraphText;
-
-    }    
+    }
+    /**
+     * Converts string first char to uppercase
+     *
+     * @param  string $inputString (The input string)
+     *
+     * @return string         first uppercased string
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.1
+     */
+    public static function strUnslug(string $inputString)
+    {
+        return ucwords(str_replace('-', ' ', $inputString));
+    }
+      
 }
