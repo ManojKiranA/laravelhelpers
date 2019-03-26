@@ -633,7 +633,7 @@ class StringHelper
     public static function swapCase( string $inputString, $mbString = false)
     {
         return array_reduce(str_split($inputString), function($carry, $item) use ($mbString) {
-            return $carry .= isLower($item, $mbString) ? toUpper($item, $mbString) : toLower($item, $mbString);
+            return $carry .= static::isLower($item, $mbString) ? static::toUpper($item, $mbString) : static::toLower($item, $mbString);
         }, '');
     }
 
