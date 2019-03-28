@@ -821,7 +821,7 @@ class StringHelper
     |echo highlightStringInParagraph("Lorem Ipsum is simply dummy text of the printing and typesetting industry",['lorem','ipsum'],'#fa8a1a');
     |
     */
-    public static function highlightStringInParagraph($paragraphText='', $highlightWords='',$highlightColor='red')
+    public static function highlightStringInParagraph(string $paragraphText='', $highlightWords='',$highlightColor='red')
     {
         if (is_array($highlightWords)) 
         {
@@ -852,7 +852,7 @@ class StringHelper
      * @return string         return the actual string by removing the hyphens
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
-     * @version      1.1
+     * @version      1.2
      */
     public static function strUnslug(string $inputString)
     {
