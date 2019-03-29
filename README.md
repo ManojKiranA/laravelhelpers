@@ -18,10 +18,12 @@ LaravelHelper currently has the folowing classes . Instructions on how to use th
 | Class Name | Namespace |
 | ------ | ------ |
 | StringHelper | Manojkiran\LaravelHelpers\Helpers\StringHelper |
+| ArrayHelper | Manojkiran\LaravelHelpers\Helpers\ArrayHelper |
 
 ## Usage
 
 ``` php
+
 Route::get('between',function()
 {    
     $res = StringHelper:: between('laravel','a','e');
@@ -64,12 +66,10 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).# laravelhelpers
 
 
-# New Methods!
-
-  - ``` StringHelper::highlightStringInParagraph ```
-
-
 ### Todos
 
  - Add Array helpers class
+ - Add Model helpers class
+ - Add Model Scopes trait
+ - Add Controllers trait
 
