@@ -1,6 +1,10 @@
 # Useful Laravel Helper Classes and Methods
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/manojkiran/laravelhelpers.svg?style=flat-square)](https://packagist.org/packages/manojkiran/laravelhelpers) [![Total Downloads](https://img.shields.io/packagist/dt/manojkiran/laravelhelpers.svg?style=flat-square)](https://packagist.org/packages/manojkiran/laravelhelpers)
+[![Packagist License](https://poser.pugx.org/manojkiran/aktiv/license)](http://choosealicense.com/licenses/mit/)
+[![Latest Stable Version](https://poser.pugx.org/manojkiran/aktiv/v/stable)](https://packagist.org/packages/manojkiran/laravelhelpers)
+[![Total Downloads](https://poser.pugx.org/manojkiran/aktiv/downloads)](https://packagist.org/packages/manojkiran/laravelhelpers)
+[![Laravel5.8](https://img.shields.io/badge/Laravel-Framework-red.svg?style=flat)](https://www.laravel.com/)
+
 
 This package contains the useful helper classes for laravel.
 
