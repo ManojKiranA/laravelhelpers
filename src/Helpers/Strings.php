@@ -806,7 +806,7 @@ class StringHelper
     * @param        string  $highlightColor(optional)
     * @usage        Highlights the given string in paragraph
     * @return string         highlighits the string with color
-    * @version      1.4
+    * @version      1.5
     **/
     /*
     |--------------------------------------------------------------------------
@@ -836,8 +836,9 @@ class StringHelper
         }
         elseif (!is_array($highlightWords)) 
         {
-            $colorChangedParagraph = preg_replace(
-                    "|($highlightWord)|Ui" ,
+           
+            $paragraphText = preg_replace(
+                    "|($highlightWords)|Ui" ,
                     "<span style=\"color:".$highlightColor. ";\"><b>$1</b></span>" ,
                     $paragraphText 
                 );
