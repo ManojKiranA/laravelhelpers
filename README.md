@@ -1,8 +1,8 @@
 # Useful Laravel Helper Classes and Methods
 
-[![Packagist License](https://poser.pugx.org/manojkiran/aktiv/license)](http://choosealicense.com/licenses/mit/)
-[![Latest Stable Version](https://poser.pugx.org/manojkiran/aktiv/v/stable)](https://packagist.org/packages/manojkiran/laravelhelpers)
-[![Total Downloads](https://poser.pugx.org/manojkiran/aktiv/downloads)](https://packagist.org/packages/manojkiran/laravelhelpers)
+[![Packagist License](https://poser.pugx.org/manojkiran/laravelhelpers/license)](http://choosealicense.com/licenses/mit/)
+[![Latest Stable Version](https://poser.pugx.org/manojkiran/laravelhelpers/v/stable)](https://packagist.org/packages/manojkiran/laravelhelpers)
+[![Total Downloads](https://poser.pugx.org/manojkiran/laravelhelpers/downloads)](https://packagist.org/packages/manojkiran/laravelhelpers)
 [![Laravel5.8](https://img.shields.io/badge/Laravel-Framework-red.svg?style=flat)](https://www.laravel.com/)
 
 
