@@ -865,24 +865,17 @@ class StringHelper
      * @param  string $findFor (The search string)
      * @param  string $replaceWith (The string to be replaced)
      * @param  string $actualString (The Actual String)
+     * @param  string $isCaseSensitive (Is String need to checked with case sensitive)
      * 
      * @return string     return the string with replacing the last occurence
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
-     * @version      1.2
+     * @version      1.4
      * @since      1.0.5
      */
-    public static function stringReplaceLast(string $findFor , string $replaceWith , string $actualString) 
+    public static function stringReplaceLast(string $findFor , string $replaceWith , string $actualString, bool $isCaseSensitive = true):string
     {
-        $stringPositionOccurrence = strrpos( $actualString , $findFor );
-
-        if( $stringPositionOccurrence !== false ) 
-        {
-            $maxSearchLength  = strlen( $findFor );
-            $finalString    = substr_replace( $actualString , $replaceWith , $stringPositionOccurrence , $maxSearchLength );
-        }
-
-        return isset($finalString) ? $finalString : $actualString;
+        return static::stringReplaceBase($findFor,$replaceWith,$actualString, $isCaseSensitive == true ? 'strrpos': 'strripos');
     }
 
     /**
@@ -891,26 +884,44 @@ class StringHelper
      * @param  string $findFor (The search string)
      * @param  string $replaceWith (The string to be replaced)
      * @param  string $actualString (The Actual String)
+     * @param  string $isCaseSensitive (Is String need to checked with case sensitive)
      * 
      * @return string     return the string with replacing the first occurence
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
-     * @version      1.2
+     * @version      1.4
      * @since      1.0.5
      */
     
-    public static function stringReplaceFirst(string $findFor , string $replaceWith , string $actualString)
+    public static function stringReplaceFirst(string $findFor , string $replaceWith , string $actualString,bool $isCaseSensitive = true):string
     {
-        $stringPositionOccurrence = strrpos( $actualString,$findFor );
-
-        if ($stringPositionOccurrence !== false)
+        return static::stringReplaceBase($findFor,$replaceWith,$actualString, $isCaseSensitive == true ? 'strpos': 'stripos');
+    }
+    /**
+     * Replace the First Occurence or Last Occurence of the string With the spefic string
+     *
+     * @param  string $findFor (The search string)
+     * @param  string $replaceWith (The string to be replaced)
+     * @param  string $actualString (The Actual String)
+     * @param  string $methodName (The Method to get the  String Position) 
+     * @return string     return the string with replacing the First Occurence or Last Occurence
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.3
+     * @since      1.0.5
+     * @see https://stackoverflow.com/questions/1252693/using-str-replace-so-that-it-only-acts-on-the-first-match/1252710#1252710
+     * @updated      1.0.6
+     */
+    
+    public static function stringReplaceBase(string $findFor , string $replaceWith , string $actualString ,string $methodName):string
+    {
+        $stringPositionOccurrence = $methodName($actualString, $findFor);
+        
+        if ($stringPositionOccurrence !== false) 
         {
-            $stringPositionOccurrence = strpos($actualString, $findFor);
-            
-            $finalString =  substr_replace($actualString, $replaceWith, $stringPositionOccurrence, strlen($findFor));
+            return substr_replace($actualString, $replaceWith, $stringPositionOccurrence, strlen($findFor));
         }
-
-        return isset($finalString) ? $finalString : $actualString;
+        return $actualString;
     }
 
     /**
