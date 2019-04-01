@@ -295,7 +295,7 @@ class ArrayHelper
      * @since      1.0.4
      * @see https://stackoverflow.com/a/10424516/8487424
      */
-    public function arrayFlattenSingleAWR(array $multiDimensionalArray)
+    public static  function arrayFlattenSingleAWR(array $multiDimensionalArray)
     {
         $singleDimensionalArray = array();
         array_walk_recursive($multiDimensionalArray, function($array) use (&$singleDimensionalArray) { $singleDimensionalArray[] = $array; });
@@ -314,7 +314,7 @@ class ArrayHelper
      * @since      1.0.4
      * @see https://stackoverflow.com/a/10424516/8487424
      */
-    public function arrayFlattenSingleRI(array $multiDimensionalArray)
+    public static function arrayFlattenSingleRI(array $multiDimensionalArray)
     {
         $recursiveIteratorArray = new RecursiveIteratorIterator(new RecursiveArrayIterator($multiDimensionalArray));
         foreach($recursiveIteratorArray as $recursiveIteratorArrayKey => $recursiveIteratorArrayValue) 
@@ -323,5 +323,37 @@ class ArrayHelper
         }
         return $singleDimensionalArray;
     }
-
+    /**
+     * Check if the array is multi dimensional
+     *
+     * @param  string $array (The array to be passes )
+     * 
+     * @return bool    
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.1
+     * @since      1.0.5
+     * @see https://pageconfig.com/post/checking-multidimensional-arrays-in-php
+     */
+    public static function isArrayMulti( array $array ) 
+    {
+        rsort( $array );
+        return isset( $array[0] ) && is_array( $array[0] );
+    }
+    /**
+     * Check if the array is single dimensional 
+     *
+     * @param  string $array (The array to be passes )
+     * 
+     * @return bool    
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.1
+     * @since      1.0.5
+     * @see https://pageconfig.com/post/checking-multidimensional-arrays-in-php
+     */
+    public static function isArraySingle(array $array )
+    {
+        return !static::isArrayMulti($array);
+    }
 }
