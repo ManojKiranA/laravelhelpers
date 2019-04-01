@@ -912,5 +912,58 @@ class StringHelper
 
         return isset($finalString) ? $finalString : $actualString;
     }
+
+    /**
+     * Reverses the Sentence without reversing the words
+     *
+     * @param  string $sentence (The Passes Sentence)
+     * 
+     * @return string    
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
+     * @since      1.0.6
+     * @usage   reverseSentenceWithoutReversingWords(Laravel is Open Source FrameWork.It Was Developed By Taylor Otwell.);
+     * @result  Otwell. Taylor By Developed Was FrameWork.It Source Open is Laravel
+     */
+    public static function reverseSentenceWithoutReversingWords(string $sentence):string
+    {
+        return implode(" ", array_reverse(explode(" ", $sentence)));
+    }
+
+    /**
+     * Reverses the Words in Sentence without reversing the Sentence
+     *
+     * @param  string $sentence (The Passes Sentence)
+     * 
+     * @return string   
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
+     * @since      1.0.6
+     * @usage   reverseWordsWithoutReversingSentence(Laravel is Open Source FrameWork.It Was Developed By Taylor Otwell.);
+     * @result  levaraL si nepO ecruoS tI.kroWemarF saW depoleveD yB rolyaT .llewtO
+     */
+    public static function reverseWordsWithoutReversingSentence(string $sentence):string
+    {
+        return implode(" ", array_map('strrev',explode(" ", $sentence)));
+    }
+    /**
+     * Reverses the Words in Sentence without reversing the Sentence
+     *
+     * @param  string $sentence (The Passes Sentence)
+     * 
+     * @return string   
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
+     * @since      1.0.6
+     * @usage   reverseSenetenceWithReversingWords(Laravel is Open Source FrameWork.It Was Developed By Taylor Otwell.);
+     * @result  .llewtO rolyaT yB depoleveD saW tI.kroWemarF ecruoS nepO si levaraL
+     */
+    public static function reverseSenetenceWithReversingWords(string $sentence):string
+    {
+        return implode(" ", array_reverse(array_map('strrev',explode(" ", $sentence))));
+    }
       
 }
