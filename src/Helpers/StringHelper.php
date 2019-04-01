@@ -859,5 +859,58 @@ class StringHelper
     {
         return ucwords(str_replace('-', ' ', $inputString));
     }
+    /**
+     * Replace the last Occurence of the string With the spefic string
+     *
+     * @param  string $findFor (The search string)
+     * @param  string $replaceWith (The string to be replaced)
+     * @param  string $actualString (The Actual String)
+     * 
+     * @return string     return the string with replacing the last occurence
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
+     * @since      1.0.5
+     */
+    public static function stringReplaceLast(string $findFor , string $replaceWith , string $actualString) 
+    {
+        $stringPositionOccurrence = strrpos( $actualString , $findFor );
+
+        if( $stringPositionOccurrence !== false ) 
+        {
+            $maxSearchLength  = strlen( $findFor );
+            $finalString    = substr_replace( $actualString , $replaceWith , $stringPositionOccurrence , $maxSearchLength );
+        }
+
+        return isset($finalString) ? $finalString : $actualString;
+    }
+
+    /**
+     * Replace the first Occurence of the string With the spefic string
+     *
+     * @param  string $findFor (The search string)
+     * @param  string $replaceWith (The string to be replaced)
+     * @param  string $actualString (The Actual String)
+     * 
+     * @return string     return the string with replacing the first occurence
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
+     * @since      1.0.5
+     */
+    
+    public static function stringReplaceFirst(string $findFor , string $replaceWith , string $actualString)
+    {
+        $stringPositionOccurrence = strrpos( $actualString,$findFor );
+
+        if ($stringPositionOccurrence !== false)
+        {
+            $stringPositionOccurrence = strpos($actualString, $findFor);
+            
+            $finalString =  substr_replace($actualString, $replaceWith, $stringPositionOccurrence, strlen($findFor));
+        }
+
+        return isset($finalString) ? $finalString : $actualString;
+    }
       
 }
