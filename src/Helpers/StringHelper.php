@@ -53,7 +53,7 @@ class StringHelper
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
      * @version      1.2
      */
-    public static function camelize(string $inputString, $upperCaseFirstLetter = false)
+    public static function camelize(string $inputString,bool $upperCaseFirstLetter = false)
     {
         $inputString = trim($inputString);
 
