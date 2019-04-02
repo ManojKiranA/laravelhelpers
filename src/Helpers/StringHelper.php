@@ -181,17 +181,50 @@ class StringHelper
     /**
      * Count the occurrences of substring in string
      *
-     * @param string   $inputString the input string
-     * @param string $subString
+     * @param string   $haystack the input string
+     * @param string ||  array  $needles
+     * @param bool $caseSensitive need to check as case sensitive (defaults to true)
+     * @param bool $returnEachCount returns the count with each needles (defaults to false)
+     * @param string $returnTypeCount type of returning while $returnEachCount is set to true so try 'ARR' or 'STR'
+     * 
      *
-     * @return int
+     * @return int or array or string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
      * @version      1.2
+     *  @updated 1.0.7
      */
-    public static function countOccurrences( string $inputString, string $subString)
+    public static function countOccurrences(string $haystack ,  $needles , bool $caseSensitive = true , bool $returnEachCount = false,string $returnTypeCount = 'ARR')
     {
-        return mb_substr_count( $inputString, $subString);
+        $returnTypeCount = strtoupper($returnTypeCount);
+        
+        !is_array($needles) ? $needles = explode(' ',$needles) :$needles = $needles;
+
+        $needles = array_unique($needles);
+
+        foreach ($needles as $eachNeedle) 
+        {
+            $count[] = substr_count($haystack == false ? strtolower($haystack): $haystack, $caseSensitive == false ? strtolower($eachNeedle): $eachNeedle);
+        }
+        if ($returnEachCount == true)
+        {
+            if ($returnTypeCount == 'ARR') 
+            {
+            return array_combine($needles,$count);
+            }
+            elseif($returnTypeCount == 'STR')
+            {
+                return str_replace('=', ':', http_build_query(array_combine($needles,$count), null, ','));
+            }else 
+            {
+                throw new \Exception("Try either ARR or STR", 1);    
+            }
+            
+        }else 
+        {
+            return  arrayAddition($count);
+        }
+
     }
 
     /**

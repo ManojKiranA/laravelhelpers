@@ -120,7 +120,7 @@ class ArrayHelper
      */
     public static function arrayAddition(array $numbersArray)
     {
-        if (count($numbersArray) > 2 ) 
+        if (count($numbersArray) >= 2 ) 
         {
             $result = 0;
             foreach ($numbersArray as $numbersArray)
@@ -144,7 +144,7 @@ class ArrayHelper
      */
     public static function  arraySubtraction(array $numbersArray)
     {    
-        if (count($numbersArray) > 2 ) 
+        if (count($numbersArray) >= 2 ) 
         {
             $result = reset($numbersArray);
 
@@ -171,7 +171,7 @@ class ArrayHelper
      */
     public static function arrayMultiplication(array $numbersArray)
     {
-        if (count($numbersArray) > 2 ) 
+        if (count($numbersArray) >= 2 ) 
         {
             $result = 1;
             
