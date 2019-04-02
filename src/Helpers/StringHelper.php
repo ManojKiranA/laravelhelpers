@@ -165,15 +165,17 @@ class StringHelper
      *
      * @param string   $inputString the input string
      * @param string $subString
+     * @param bool $isCaseSensitive (is Check need to be Performed With case Sensitive default will be true)
      *
      * @return bool
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
      * @version      1.2
      */
-    public static function contains( string $inputString, string $subString)
+    public static function contains( string $inputString, string $subString,bool $isCaseSensitive = true)
     {
-        return mb_strpos($inputString, $subString) !== false;
+        return $isCaseSensitive == false ? mb_stripos($inputString, $subString) !== false : 
+                mb_strpos($inputString, $subString) !== false;
     }
 
     /**
