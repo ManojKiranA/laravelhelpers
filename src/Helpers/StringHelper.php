@@ -7,27 +7,37 @@ class StringHelper
     /**
      * Extracts the string between two substrings
      *
-     * @param string   $inputString the input string
-     * @param string $onLeft
-     * @param string $onRight
+     * @param string   $inputString (The input string)
+     * @param string $onLeft (The Starting form String)
+     * @param string $onRight (The Ending upto String)
+     * @param string $spanUptoLast (Set to true if you need to span upto last of the string)
      *
      * @return string
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
      * @version      1.2
+     * @updated 1.0.7
      */
-    public static function between(string $inputString, string $onLeft, string $onRight)
+    public static function between(string $inputString, string $onLeft, string $onRight,bool $spanUptoLast = false)
     {
         $inputString = ' ' . $inputString;
         $initializeString   = strpos($inputString, $onLeft);
 
-        if ($initializeString == 0) {
+        if ($initializeString == 0) 
+        {
             return '';
         }
 
+        if ($spanUptoLast == true) 
+        {
+            $matches = [];
+            $regex = "/$onLeft([a-zA-Z0-9_]*)$onRight/";
+            preg_match_all($regex, $inputString, $matches);
+            return implode('',$matches[1]);
+        }
+        
         $initializeString += strlen($onLeft);
         $length = strpos($inputString, $onRight, $initializeString) - $initializeString;
-
         return substr($inputString, $initializeString, $length);
     }
 
@@ -975,6 +985,99 @@ class StringHelper
     public static function reverseSenetenceWithReversingWords(string $sentence):string
     {
         return implode(" ", array_reverse(array_map('strrev',explode(" ", $sentence))));
+    }
+    /**
+     * Replaces the string with the other string with limit count and starting position
+     *
+     * @param  string $findFor (The Prase need to searched within the string)
+     * @param  string $replaceWith (The Prase need to replaced with)
+     * @param  string $actualString (The Actual String)
+     * @param  int $replaceLimit (The Number of times need the replacements to be done)
+     * @param  int $startingStringPosition (The String Position Needs to starts from default will be zero)
+     * 
+     * 
+     * @return string   
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
+     * @since      1.0.7
+     * 
+     */
+    public static function stringReplaceLimit(string $findFor , string $replaceWith , string $actualString, int $replaceLimit = 0 ,int  $startingStringPosition = 0) 
+    {
+        if ($replaceLimit <= 0) 
+        {
+            return $actualString;
+        }
+        else 
+        {
+            $startingStringPosition > strlen($actualString) ? $startingStringPosition = strlen($actualString) : '';
+
+            $pos = strpos($actualString,$findFor ,$startingStringPosition);
+
+            if ($pos !== false) 
+            {
+                $newstring = substr_replace($actualString, $replaceWith , $pos, strlen($findFor));
+
+                return static::stringReplaceLimit($findFor, $replaceWith ,$newstring, $replaceLimit-1, $pos+strlen($replaceWith));
+            }
+            else 
+            {
+                return $actualString;
+            }
+        }
+    }
+    /**
+     * Replaces the string with the other string with limit count and starting position from the front side of the string
+     *
+     * @param  string $findFor (The Prase need to searched within the string)
+     * @param  string $replaceWith (The Prase need to replaced with)
+     * @param  string $actualString (The Actual String)
+     * @param  int $replaceLimit (The Number of times need the replacements to be done)
+     * @param  int $startingStringPosition (The String Position Needs to starts from default will be zero)
+     * 
+     * 
+     * @return string   
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
+     * @since      1.0.7
+     * 
+     */
+    public static function stringReplaceLimitFront(string $findFor , string $replaceWith ,string $actualString, int $replaceLimit = 0, int $startingStringPosition = 0)
+    {
+        return static::stringReplaceLimit($findFor,$replaceWith,$actualString,$replaceLimit,$startingStringPosition);
+    }
+    /**
+     * Replaces the string with the other string with limit count and starting position from the back side of the string
+     *
+     * @param  string $findFor (The Prase need to searched within the string)
+     * @param  string $replaceWith (The Prase need to replaced with)
+     * @param  string $actualString (The Actual String)
+     * @param  int $replaceLimit (The Number of times need the replacements to be done)
+     * @param  int $startingStringPosition (The String Position Needs to starts from default will be zero)
+     * 
+     * 
+     * @return string   
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.2
+     * @since      1.0.7
+     * 
+     */
+    public static function stringReplaceLimitBack(string $findFor , string $replaceWith , string $actualString,int $replaceLimit = 0 , int $startingStringPosition = 0)
+    {
+        $reversedString = static::reverseSentenceWithoutReversingWords($actualString);
+
+        if ($reversedString == $actualString) 
+        {
+            $reversedString = strrev($actualString);
+            return strrev(static::stringReplaceLimit($findFor,$replaceWith,$reversedString,$replaceLimit,$startingStringPosition));
+        }
+        else 
+        {
+            return static::reverseSentenceWithoutReversingWords(static::stringReplaceLimit($findFor,$replaceWith,$reversedString,$replaceLimit,$startingStringPosition));
+        }
     }
       
 }
