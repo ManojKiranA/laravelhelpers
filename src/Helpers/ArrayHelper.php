@@ -129,6 +129,8 @@ class ArrayHelper
             }
 
             return $result;
+        }else {
+            return current($numbersArray);
         }
     }
      /**
@@ -156,6 +158,8 @@ class ArrayHelper
                 }
             }
             return $result;  
+        }else {
+            return current($numbersArray);
         }
     }
      /**
@@ -180,6 +184,8 @@ class ArrayHelper
                 $result *= $numbersArray;
             }
             return $result;
+        }else {
+            return current($numbersArray);
         }
     }
 
