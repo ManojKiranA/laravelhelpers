@@ -1,6 +1,7 @@
 <?php
 
 namespace Manojkiran\LaravelHelpers\Helpers;
+use Manojkiran\LaravelHelpers\Helpers\ArrayHelper;
 
 class StringHelper
 {
@@ -222,7 +223,7 @@ class StringHelper
             
         }else 
         {
-            return  arrayAddition($count);
+            return  ArrayHelper::arrayAddition($count);
         }
 
     }
