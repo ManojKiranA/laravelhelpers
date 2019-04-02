@@ -1154,6 +1154,25 @@ class StringHelper
             case 'DISTINCT':
                 $randomText = md5(uniqid() . time() . mt_rand());
                 break;
+            case 'HUMANREADABLE':
+                // https://gist.github.com/sepehr/3371339
+                $finalRandomString     = '';
+                $aplhaVowels     = ["a","e","i","o","u"];
+                $aplhaConsonants = [
+                                    'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 
+                                    'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'
+                                ];  
+                srand((double) microtime() * 1000000);
+                $maxLength = $length/2;
+                
+                for ($ctrlVarb = 1; $ctrlVarb <= $maxLength; $ctrlVarb++)
+                {
+                    $finalRandomString .= $aplhaConsonants[rand(0,19)];
+                    $finalRandomString .= $aplhaVowels[rand(0,4)];
+                }
+                return $finalRandomString;
+
+                break;
             default:
                 $randomText = (string)$generatorType;
                 break;
@@ -1280,5 +1299,24 @@ class StringHelper
     {
         return static::generateRandomBase($yourString,$length);
     }
+    /**
+     * Generated the random DISTINCT String
+     *
+     * @param  string $generatorType (Type of random string needs to generated)
+     * @param  int $length (lrngth of the generated random) 
+     * 
+     * @return string   
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.0
+     * @since      1.0.8
+     * @alaiased from generateRandomBase
+     * 
+     */    
+    public function generateHumanReadableRandom(int $length = 10):string
+    {
+        return static::generateRandomBase('HUMANREADABLE',$length);
+    }
+    // HUMANREADABLE
       
 }
