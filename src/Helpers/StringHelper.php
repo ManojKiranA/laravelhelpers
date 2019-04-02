@@ -918,6 +918,7 @@ class StringHelper
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
      * @version      1.4
      * @since      1.0.5
+     * @alaiased from stringReplaceBase
      */
     public static function stringReplaceLast(string $findFor , string $replaceWith , string $actualString, bool $isCaseSensitive = true):string
     {
@@ -937,6 +938,7 @@ class StringHelper
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
      * @version      1.4
      * @since      1.0.5
+     * @alaiased from stringReplaceBase
      */
     
     public static function stringReplaceFirst(string $findFor , string $replaceWith , string $actualString,bool $isCaseSensitive = true):string
@@ -1078,6 +1080,7 @@ class StringHelper
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
      * @version      1.2
      * @since      1.0.7
+     * @alaiased from stringReplaceLimit
      * 
      */
     public static function stringReplaceLimitFront(string $findFor , string $replaceWith ,string $actualString, int $replaceLimit = 0, int $startingStringPosition = 0)
@@ -1099,6 +1102,7 @@ class StringHelper
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
      * @version      1.2
      * @since      1.0.7
+     * @alaiased from stringReplaceLimit
      * 
      */
     public static function stringReplaceLimitBack(string $findFor , string $replaceWith , string $actualString,int $replaceLimit = 0 , int $startingStringPosition = 0)
@@ -1126,9 +1130,10 @@ class StringHelper
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
      * @version      1.0
      * @since      1.0.8
+     * @credit   github gist
      * 
      */
-    public static function generateRandom(string $generatorType = 'ALPNUM',int $length = 8):string
+    public static function generateRandomBase(string $generatorType = 'ALPNUM',int $length = 8):string
     {
         switch (strtoupper($generatorType)) {
             case 'ALPNUM':
@@ -1183,6 +1188,97 @@ class StringHelper
         }
 
         return $generatedRandom;
+    }
+    /**
+     * Generated the random Aplhanumeric String
+     *
+     * @param  string $generatorType (Type of random string needs to generated)
+     * @param  int $length (lrngth of the generated random) 
+     * 
+     * @return string   
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.0
+     * @since      1.0.8
+     * @alaiased from generateRandomBase
+     * 
+     */    
+    public function generateAlphaNumericRandom(int $length = 10):string
+    {
+        return static::generateRandomBase('ALPNUM',$length);
+    }
+    /**
+     * Generated the random Alpha String
+     *
+     * @param  string $generatorType (Type of random string needs to generated)
+     * @param  int $length (lrngth of the generated random) 
+     * 
+     * @return string   
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.0
+     * @since      1.0.8
+     * @alaiased from generateRandomBase
+     * 
+     */    
+    public function generateAlphaRandom(int $length = 10):string
+    {
+        return static::generateRandomBase('ALPHA',$length);
+    }
+
+    /**
+     * Generated the random HEXDEC String
+     *
+     * @param  string $generatorType (Type of random string needs to generated)
+     * @param  int $length (lrngth of the generated random) 
+     * 
+     * @return string   
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.0
+     * @since      1.0.8
+     * @alaiased from generateRandomBase
+     * 
+     */    
+    public function generateHexDecRandom(int $length = 10):string
+    {
+        return static::generateRandomBase('HEXDEC',$length);
+    }
+    /**
+     * Generated the random DISTINCT String
+     *
+     * @param  string $generatorType (Type of random string needs to generated)
+     * @param  int $length (lrngth of the generated random) 
+     * 
+     * @return string   
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.0
+     * @since      1.0.8
+     * @alaiased from generateRandomBase
+     * 
+     */    
+    public function generateDistinctRandom(int $length = 10):string
+    {
+        return static::generateRandomBase('DISTINCT',$length);
+    }
+    /**
+     * Generated the random DISTINCT String
+     *
+     * @param  string $generatorType (Type of random string needs to generated)
+     * @param  int $length (lrngth of the generated random) 
+     * 
+     * @return string   
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.0
+     * @since      1.0.8
+     * @alaiased from generateRandomBase
+     * 
+     */    
+    public function generateCustomRandom(string $yourString,int $length = 10):string
+    {
+        return static::generateRandomBase($yourString,$length);
     }
       
 }
