@@ -1115,5 +1115,74 @@ class StringHelper
             return static::reverseSentenceWithoutReversingWords(static::stringReplaceLimit($findFor,$replaceWith,$reversedString,$replaceLimit,$startingStringPosition));
         }
     }
+    /**
+     * Generated the random String by following Crteria ['ALPNUM','ALPHA','HEXDEC','NUM','NOZERO','DISTINCT']
+     *
+     * @param  string $generatorType (Type of random string needs to generated)
+     * @param  int $length (lrngth of the generated random) 
+     * 
+     * @return string   
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     * @version      1.0
+     * @since      1.0.8
+     * 
+     */
+    public static function generateRandom(string $generatorType = 'ALPNUM',int $length = 8):string
+    {
+        switch (strtoupper($generatorType)) {
+            case 'ALPNUM':
+                $randomText = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                break;
+            case 'ALPHA':
+                $randomText = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                break;
+            case 'HEXDEC':
+                $randomText = '0123456789abcdef';
+                break;
+            case 'NUM':
+                $randomText = '0123456789';
+                break;
+            case 'NOZERO':
+                $randomText = '123456789';
+                break;
+            case 'DISTINCT':
+                $randomText = md5(uniqid() . time() . mt_rand());
+                break;
+            default:
+                $randomText = (string)$generatorType;
+                break;
+        }
+
+
+        $cryptoRandomSecure = function ($minimumLength = '', $maximumLength = '') {
+
+            $numberRange = $maximumLength - $minimumLength;
+
+            if ($numberRange < 0) {
+                return $minimumLength; // not so random...
+            }
+
+            $numberRangeLog   = log($numberRange, 2);
+            $bytesLength  = (int)($numberRangeLog / 8) + 1; // length in bytes
+            $bitsLength   = (int)$numberRangeLog + 1; // length in bits
+            $filterRandom = (int)(1 << $bitsLength) - 1; // set all lower bits to 1
+            do {
+                $randomGen = hexdec(bin2hex(openssl_random_pseudo_bytes($bytesLength)));
+                $randomGen = $randomGen & $filterRandom; // discard irrelevant bits
+            } while ($randomGen >= $numberRange);
+            return $minimumLength + $randomGen;
+        };
+
+        $generatedRandom = "";
+
+        $maximumLength   = strlen($randomText);
+
+        for ($i = 0; $i < $length; $i++) {
+            $generatedRandom .= $randomText[$cryptoRandomSecure(0, $maximumLength)];
+        }
+
+        return $generatedRandom;
+    }
       
 }
