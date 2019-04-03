@@ -86,7 +86,7 @@ class ArrayHelper
 
     public static function arrayOnlyKeys(array $originalArray ,$arrayIncludeable ,bool $preserveKeys = true)
     {
-        return  $preserveKeys == false ? array_values(array_diff($originalArray, arrayExcludeKeys($originalArray,$arrayIncludeable))) : array_diff($originalArray, arrayExcludeKeys($originalArray,$arrayIncludeable));
+        return  $preserveKeys == false ? array_values(array_diff($originalArray, static::arrayExcludeKeys($originalArray,$arrayIncludeable))) : array_diff($originalArray, static::arrayExcludeKeys($originalArray,$arrayIncludeable));
     }
 
     /**
