@@ -1,9 +1,11 @@
-# Useful Laravel Helper Classes and Methods
+# Useful Laravel Helper Classes and Methods(UNDER DEVELOPMENT)
 
 [![Packagist License](https://poser.pugx.org/manojkiran/laravelhelpers/license)](http://choosealicense.com/licenses/mit/)
 [![Latest Stable Version](https://poser.pugx.org/manojkiran/laravelhelpers/v/stable)](https://packagist.org/packages/manojkiran/laravelhelpers)
 [![Total Downloads](https://poser.pugx.org/manojkiran/laravelhelpers/downloads)](https://packagist.org/packages/manojkiran/laravelhelpers)
-[![Laravel5.8](https://img.shields.io/badge/Laravel-Framework-red.svg?style=flat)](https://www.laravel.com/)
+[![Laravel5.8](https://img.shields.io/badge/Laravel-Framework-red.svg)](https://www.laravel.com/)
+[![Author](https://img.shields.io/badge/author-@ManojKiran-blue.svg)](https://twitter.com/Manoj_Kiran_A)
+[![Latest Unstable Version](https://poser.pugx.org/manojkiran/laravelhelpers/v/unstable)](https://packagist.org/packages/manojkiran/laravelhelpers)
 
 
 This package contains the useful helper classes for laravel.
@@ -26,17 +28,9 @@ LaravelHelper currently has the folowing classes . Instructions on how to use th
 
 ## Usage
 
-``` php
+**Documentation for the Helpers Classes is under heavy development**
 
-Route::get('between',function()
-{    
-    $res = StringHelper:: between('laravel','a','e');
-
-    dd($res);
-    //result will be  
-    //rav
-});
-```
+**Use @ your own risk**
 
 ### Testing
 
@@ -58,7 +52,7 @@ If you discover any security related issues, please email manojkiran10031998@gma
 
 ## Credits
 
-- [Manojkiran.A](https://github.com/manojkiran)
+- [Manojkiran.A](https://github.com/ManojKiranA)
 - [All Contributors](../../contributors)
 
 ## License
@@ -70,10 +64,16 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).# laravelhelpers
 
 
-### Todos
+## Road map
 
- - Add Array helpers class
- - Add Model helpers class
- - Add Model Scopes trait
- - Add Controllers trait
+laravelhelpers is still under heavy development, I decided to ship it in this early stage so you can help me make it better.
 
+Here's the plan for what's coming:
+
+- [x] Add Array helpers class.
+- [ ] Add Date helpers class
+- [ ] Add Model helpers class.
+- [ ] Add Controller helpers class.
+- [ ] Add Model Scopes trait.
+- [ ] Add Controllers trait.
+- [ ] Add tests.
