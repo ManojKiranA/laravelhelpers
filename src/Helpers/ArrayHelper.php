@@ -36,19 +36,17 @@ class ArrayHelper
      * @return array
      *
      * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
-     * @version      1.0
-     * @since      1.0.4
+     * @version      1.1
+     * @since        1.0.4
+     * @updated      1.0.9
     */
-    public static function arrayExcludeKeys(array $originalArray,$arrayExcludeable,bool $preserveKeys = true)
+    public static function arrayExcludeKeys(array $originalArray, $arrayExcludeable, bool $preserveKeys = true)
     {
-        !is_array($arrayExcludeable) ? $arrayExcludeable = explode(' ',$arrayExcludeable) :$arrayExcludeable = $arrayExcludeable;
+        !is_array($arrayExcludeable) ? $arrayExcludeable = explode(' ', $arrayExcludeable) : $arrayExcludeable = $arrayExcludeable;
 
-        foreach($arrayExcludeable as $excludeKey)
-        {
-            unset($originalArray[$excludeKey]);
-        }
+        $originalArray = array_diff_key($originalArray, array_flip($arrayExcludeable));
 
-        return  $preserveKeys == false ? array_values($originalArray) : $originalArray; 
+        return  $preserveKeys == false ? array_values($originalArray) : $originalArray;
     }
 
     /**
