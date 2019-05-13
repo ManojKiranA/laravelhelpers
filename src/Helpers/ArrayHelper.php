@@ -360,4 +360,34 @@ class ArrayHelper
     {
         return !static::isArrayMulti($array);
     }
+
+    /**
+     * Set all the array Values to Specific Value
+     *
+     * If you have array that contains keys and values.
+     * And if you need to set the all the all array values to specific value.
+     *
+     * @author [A. Manojkiran] [<manojkiran10031998@gmail.com>]
+     *
+     * @param array $array The single dimensional Array
+     * @param string $value The Default Value of all the array
+     * @return array
+     * @since      1.0.10
+     * @version      1.0
+     **/
+    public static function setAllArrayValueTo( array $array, string $value)
+    {
+        if(self:: isArrayMulti( $array))
+        {
+            throw new Exception("Multi Level Array Cannot Be Processed", 1);
+            
+        }
+        //first we need to flip the array
+        $array = array_flip($array);
+        //now we are getting the keys of array and filling it with the specific value
+        $array = array_fill_keys(array_keys($array), $value);
+        //returning the generated array
+        return $array;
+    }
+
 }
