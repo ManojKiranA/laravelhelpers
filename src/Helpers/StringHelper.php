@@ -201,7 +201,7 @@ class StringHelper
         
         !is_array($needles) ? $needles = explode(' ',$needles) :$needles = $needles;
 
-        $needles = array_unique($needles);
+        //$needles = array_unique($needles);
 
         foreach ($needles as $eachNeedle) 
         {
@@ -302,7 +302,7 @@ class StringHelper
     public static function isLower( string $inputString, $mbString = false)
     {
         return $mbString
-            ? mb_strtolower($inputString, mb_detect_encoding($inputString, 'auto')) === $input
+            ? mb_strtolower($inputString, mb_detect_encoding($inputString, 'auto')) === $inputString
             : strtolower($inputString) === $inputString;
     }
 
